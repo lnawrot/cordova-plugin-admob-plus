@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "noImplicitAny": false,
+    "target": "es5",
+    "lib": [
+      "dom",
+      "es2015"
+    ],
+    "rootDir": "ts",
+    "outDir": "www",
+    "types": ["node"],
+    "declaration": true,
+    "composite": true,
+    "strict": true
+  },
+  "include": [
+    "ts/**/*.ts"
+  ]
+}

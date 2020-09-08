@@ -1,0 +1,71 @@
+{
+  "name": "cordova-admob-plus",
+  "version": "0.36.0",
+  "description": "Trustable Google AdMob Cordova Plugin",
+  "main": "www/admob.js",
+  "typings": "www/admob.d.ts",
+  "scripts": {
+    "prepare": "run-s prepare:*",
+    "prepare:gen": "ts-node scripts/gen",
+    "prepare:build": "rollup -c",
+    "prepare:clean": "del src/.DS_Store src/**/.DS_Store"
+  },
+  "devDependencies": {
+    "@types/cordova": "^0.0.34",
+    "@types/lodash": "^4.14.149",
+    "@types/node": "^13.7.0",
+    "cordova": "10.0.0",
+    "del-cli": "^3.0.0",
+    "execa": "^4.0.0",
+    "fast-glob": "^3.1.1",
+    "find-cache-dir": "^3.2.0",
+    "lodash": "^4.17.15",
+    "npm-run-all": "^4.1.5",
+    "replace-in-file": "^5.0.2",
+    "rollup": "^1.31.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-typescript2": "^0.25.3",
+    "ts-node": "^8.6.2",
+    "typescript": "^4.0.2"
+  },
+  "author": "Ratson",
+  "license": "MIT",
+  "repository": "admob-plus/admob-plus",
+  "homepage": "https://admob-plus.github.io",
+  "files": [
+    "*.ts",
+    "*.md",
+    "*.xml",
+    "src",
+    "ts",
+    "www"
+  ],
+  "keywords": [
+    "cordova",
+    "plugin",
+    "admob",
+    "plus",
+    "ecosystem:cordova",
+    "cordova-plugin-admob",
+    "cordova-admob",
+    "cordova-android",
+    "cordova-ios",
+    "google",
+    "suite",
+    "admob-free",
+    "admobpro"
+  ],
+  "cordova": {
+    "id": "cordova-admob-plus",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "concise-esnext"
+    ]
+  }
+}
