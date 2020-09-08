@@ -52,4 +52,8 @@ class AMSRewardVideo: AMSAdBase, GADRewardBasedVideoAdDelegate {
     func rewardBasedVideoAdWillLeaveApplication(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
         plugin.emit(eventType: AMSEvents.rewardVideoExitApp)
     }
+
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd, didFailToLoadWithError error: Error) {
+        plugin.emit(eventType: AMSEvents.rewardVideoLoadFail)
+    }
 }
