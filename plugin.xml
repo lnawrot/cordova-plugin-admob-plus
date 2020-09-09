@@ -72,6 +72,7 @@
 
         <dependency id="cordova-plugin-add-swift-support" version="^2.0.2" />
         <framework src="Google-Mobile-Ads-SDK" type="podspec" spec="~> 7.64" />
+        <framework src="AppTrackingTransparency.framework" weak="true" />
     </platform>
 
     <platform name="browser">
