@@ -210,46 +210,47 @@ class AMSPlugin: CDVPlugin {
 
         if #available(iOS 14.0, *) {
             if (ATTrackingManager.trackingAuthorizationStatus == ATTrackingManager.AuthorizationStatus.notDetermined) {
-                let result = CDVPluginResult(status: CDVCommandStatus_OK, messageAsString: "notDetermined")
+                let result = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "notDetermined")
                 self.commandDelegate!.send(result, callbackId: command.callbackId)
             } else if (ATTrackingManager.trackingAuthorizationStatus == ATTrackingManager.AuthorizationStatus.restricted) {
-                let result = CDVPluginResult(status: CDVCommandStatus_OK, messageAsString: "restricted")
+                let result = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "restricted")
                 self.commandDelegate!.send(result, callbackId: command.callbackId)
             } else if (ATTrackingManager.trackingAuthorizationStatus == ATTrackingManager.AuthorizationStatus.denied) {
-                let result = CDVPluginResult(status: CDVCommandStatus_OK, messageAsString: "denied")
+                let result = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "denied")
                 self.commandDelegate!.send(result, callbackId: command.callbackId)
             } else {
-                let result = CDVPluginResult(status: CDVCommandStatus_OK, messageAsString: "authorized")
+                let result = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "authorized")
                 self.commandDelegate!.send(result, callbackId: command.callbackId)
             }
         } else {
-            let result = CDVPluginResult(status: CDVCommandStatus_OK, messageAsString: "authorized")
+            let result = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "authorized")
             self.commandDelegate!.send(result, callbackId: command.callbackId)
         }
     }
 
     @objc(tracking_alert_show:)
     func tracking_alert_show(command: CDVInvokedUrlCommand) {
-        NSLog(@"tracking_alert_show");
+        NSLog("tracking_alert_show");
 
         if #available(iOS 14.0, *) {
             ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
+                NSLog(status);
                 if (status == ATTrackingManager.AuthorizationStatus.notDetermined) {
-                    let result = CDVPluginResult(status: CDVCommandStatus_OK, messageAsString: "notDetermined")
+                    let result = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "notDetermined")
                     self.commandDelegate!.send(result, callbackId: command.callbackId)
                 } else if (status == ATTrackingManager.AuthorizationStatus.restricted) {
-                    let result = CDVPluginResult(status: CDVCommandStatus_OK, messageAsString: "restricted")
+                    let result = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "restricted")
                     self.commandDelegate!.send(result, callbackId: command.callbackId)
                 } else if (status == ATTrackingManager.AuthorizationStatus.denied) {
-                    let result = CDVPluginResult(status: CDVCommandStatus_OK, messageAsString: "denied")
+                    let result = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "denied")
                     self.commandDelegate!.send(result, callbackId: command.callbackId)
                 } else {
-                    let result = CDVPluginResult(status: CDVCommandStatus_OK, messageAsString: "authorized")
+                    let result = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "authorized")
                     self.commandDelegate!.send(result, callbackId: command.callbackId)
                 }
             })
         } else {
-            let result = CDVPluginResult(status: CDVCommandStatus_OK, messageAsString: "authorized")
+            let result = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "authorized")
             self.commandDelegate!.send(result, callbackId: command.callbackId)
         }
     }
