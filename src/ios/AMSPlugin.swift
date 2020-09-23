@@ -234,7 +234,6 @@ class AMSPlugin: CDVPlugin {
 
         if #available(iOS 14.0, *) {
             ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
-                NSLog(status);
                 if (status == ATTrackingManager.AuthorizationStatus.notDetermined) {
                     let result = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: "notDetermined")
                     self.commandDelegate!.send(result, callbackId: command.callbackId)
